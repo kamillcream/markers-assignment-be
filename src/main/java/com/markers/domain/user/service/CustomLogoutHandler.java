@@ -27,7 +27,6 @@ public class CustomLogoutHandler implements LogoutHandler {
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
         // 1) 쿠키에서 Access/Refresh 추출
-        Optional<String> access = CookieUtil.getAccessTokenFromRequest(request);
         Optional<String> refresh = CookieUtil.getRefreshTokenFromRequest(request);
 
         // 2) Refresh 폐기 (서버 저장소에서 삭제)
@@ -37,7 +36,7 @@ public class CustomLogoutHandler implements LogoutHandler {
             expireCookie(response, "access", "/", true, true, "None");
         }
 
-        // 4) 보안 컨텍스트 정리
+        // 3) 보안 컨텍스트 정리
         SecurityContextHolder.clearContext();
     }
 }
