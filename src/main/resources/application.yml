@@ -1,0 +1,31 @@
+spring:
+  cache:
+    type: redis
+
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: 6379
+      username: ${REDIS_USERNAME}
+      password: ${REDIS_PASSWORD}
+      timeout: 6000ms
+
+  datasource:
+      url: jdbc:mysql://${MYSQL_HOST}:3306/${MYSQL_DB}
+      username: ${MYSQL_USER}
+      password: ${MYSQL_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+
+jwt:
+  issuer: project.doctalk@gmail.com
+  secret: "jfsgkhdsjkweoiruwqejkrfbhnsadkjlfghbwerqewrsdfgdsfagbdf"
+  access-expiration: 3600
+  refresh-expiration: 8640
+
+server:
+  port: 8080
+  address: 0.0.0.0
