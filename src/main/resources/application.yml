@@ -10,6 +10,7 @@ spring:
       password: ${REDIS_PASSWORD}
       timeout: 6000ms
 
+
   datasource:
     url: jdbc:mysql://localhost:3306/markers
     username: root
